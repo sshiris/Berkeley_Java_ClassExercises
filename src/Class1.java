@@ -1,4 +1,4 @@
-public class App {
+public class Class1 {
 
     public void drawTriangle(int n) {
         StringBuilder sb = new StringBuilder(n);
