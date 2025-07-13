@@ -14,6 +14,11 @@ public class SLList {
         }
     }
 
+    public SLList() {
+        first = null;
+        size = 0;
+    }
+
     public SLList(int x) {
         first = new IntNode(x, null);
         size = 1;
@@ -40,24 +45,26 @@ public class SLList {
     // }
 
     public void addLast(int x) {
+        size += 1;
         IntNode p = first;
+
+        if (first == null) {
+            first = new IntNode(x, null);
+            return;
+        }
 
         while (p.rest != null) {
             p = p.rest;
         }
 
         p.rest = new IntNode(x, null);
-        size += 1;
-
     }
 
     public static void main(String[] args) {
-        SLList L = new SLList(15);
-        L.addFirst(10);
-        L.addFirst(5);
+        SLList L = new SLList();
+        // L.addFirst(10);
+        // L.addFirst(5);
         L.addLast(25);
         System.out.println(L.size);
-        System.out.println(L.getFirst());
-        System.out.println(L.first);
     }
 }
