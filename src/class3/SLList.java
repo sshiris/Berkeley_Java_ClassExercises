@@ -1,7 +1,7 @@
 package class3;
 
 public class SLList {
-    public IntNode first;
+    public IntNode sentinel;
     public int size;
 
     public class IntNode {
@@ -15,22 +15,23 @@ public class SLList {
     }
 
     public SLList() {
-        first = null;
+        sentinel = new IntNode(63, null);
         size = 0;
     }
 
     public SLList(int x) {
-        first = new IntNode(x, null);
+        sentinel = new IntNode(63, null);
+        sentinel.rest = new IntNode(x, null);
         size = 1;
     }
 
     public void addFirst(int x) {
-        first = new IntNode(x, first);
+        sentinel.rest = new IntNode(x, sentinel.rest);
         size += 1;
     }
 
     public int getFirst() {
-        return first.first;
+        return sentinel.rest.first;
     }
 
     // private static int size(IntNode p) {
@@ -46,12 +47,7 @@ public class SLList {
 
     public void addLast(int x) {
         size += 1;
-        IntNode p = first;
-
-        if (first == null) {
-            first = new IntNode(x, null);
-            return;
-        }
+        IntNode p = sentinel;
 
         while (p.rest != null) {
             p = p.rest;
