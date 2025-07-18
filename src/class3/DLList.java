@@ -1,10 +1,6 @@
 package class3;
 
 public class DLList {
-    public static void main(String[] args) {
-
-    }
-
     public class Node {
         public Node prev;
         public int item;
@@ -47,5 +43,11 @@ public class DLList {
         size += 1;
     }
 
-    public static void main()
+    public static void main(String[] args) {
+        DLList dl = new DLList();
+        dl.addFirst(5);
+        dl.addFirst(4);
+        dl.addLast(6);
+        System.out.println(dl.size);
+    }
 }
